@@ -1,0 +1,9 @@
+name = "perch"
+compatibility_date = "2026-02-16"
+send_metrics = false
+# workers_dev = false
+
+[assets]
+directory = "./target/dx/perch/release/web/public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"

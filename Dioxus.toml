@@ -1,0 +1,30 @@
+[application]
+name = "perch"
+asset_dir = "public"
+
+[bundle]
+copyright = "Justin's Engineering Services, LLC"
+identifier = "com.justinsengineering"
+publisher = "Justin's Engineering Services, LLC"
+icon = [
+   "assets/images/icon-dark.ico",
+   "assets/images/icon-dark.svg",
+   "assets/images/icon-light.ico",
+   "assets/images/icon-light.svg"
+]
+
+[web.app]
+
+# HTML title tag content
+title = "Perch"
+
+[web.resource.dev]
+# Javascript code file
+# serve: [dev-server] only
+script = []
+
+[web.watcher]
+index_on_404 = true
+
+[web]
+# pre_compress = true
