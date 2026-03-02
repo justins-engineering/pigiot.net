@@ -1,96 +1,137 @@
-// use crate::components::LoginModal;
-use crate::components::Logo;
-// use crate::components::RegisterModal;
+// use crate::components::Logo;
 use crate::Route;
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
-use dioxus_free_icons::icons::ld_icons::LdMenu;
+use dioxus_free_icons::icons::ld_icons::{
+  LdBird, LdHome, LdInfo, LdMenu, LdMessageCircleQuestion, LdTag, LdX,
+};
 
 #[component]
 pub fn Navbar() -> Element {
+  let mut show_menu: Signal<bool> = use_signal(|| true);
+
   rsx! {
-    // RegisterModal {}
-    // LoginModal {}
-    header {
-      id: "layout-topbar",
-      class: "bg-base-100 lg:bg-base-100/90 border-base-300 sticky top-0 z-10 border-b data-[at-top=true]:border-transparent lg:backdrop-blur-sm",
-      div { class: "container",
-        nav { class: "flex items-center justify-between py-2",
-          div { class: "flex items-center gap-2",
-            label {
-              class: "px-2 swap swap-rotate",
-              r#for: "menu-drawer",
-              id: "menu-drawer-trigger",
-              aria_label: "open sidebar",
-              class: "btn btn-square btn-ghost btn-sm lg:hidden",
-              Icon { icon: LdMenu }
-            }
-            Link { to: Route::Index {}, aria_label: "Home", Logo {} }
-          }
-          div { class: "max-lg:hidden",
-            ul { class: "menu menu-horizontal gap-2 px-1 text-base",
-              li { class: "font-medium",
-                a { href: "/#features", "Features" }
-              }
-              li { class: "font-medium",
-                a { href: "/#pricing", "Pricing" }
-              }
-              li { class: "font-medium",
-                a { href: "/#faq", "FAQ" }
+    header { class: "sticky top-0 z-50 backdrop-blur-md bg-base-200/80 border-b border-stone-800/50 shadow-xl",
+      div { class: "container mx-auto px-4 sm:px-6",
+        nav { class: "navbar",
+
+          div { class: "navbar-start space-x-3",
+            div { class: "size-10 rounded-full flex items-center justify-center bg-linear-to-br from-teal-600 to-purple-600 animate-glow",
+              // Logo {}
+              Icon {
+                icon: LdBird,
+                class: "size-6",
+                title: "Logo",
               }
             }
+            span { class: "text-3xl font-bold",
+              span { class: "text-primary", "PigIoT" }
+                        // span { class: "text-accent", "IoT" }
+            }
           }
-          div { class: "space-x-2",
+          div { class: "navbar-center hidden md:flex space-x-8",
+            ul { class: "menu menu-lg menu-horizontal",
+              li {
+                Link {
+                  to: Route::Index {},
+                  class: "hover:text-primary transition-colors duration-300 relative group",
+                  "Home"
+                  span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
+                }
+              }
+              li {
+                a {
+                  class: "hover:text-primary transition-colors duration-300 relative group",
+                  href: "#",
+                  "About Us"
+                  span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
+                }
+              }
+              li {
+                a {
+                  class: "hover:text-primary transition-colors duration-300 relative group",
+                  href: "/#faq",
+                  "FAQ"
+                  span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
+                }
+              }
+              li {
+                a {
+                  class: "hover:text-primary transition-colors duration-300 relative group",
+                  href: "/#pricing",
+                  "Pricing"
+                  span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
+                }
+              }
+            }
+          }
+          div { class: "navbar-end hidden md:flex",
             Link {
-              class: "btn btn-ghost btn-sm",
+              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-r from-teal-700 to-purple-600 text-white font-semibold",
               to: Route::SignUp {},
-              "Register"
+              "Get Started"
             }
-            // button { class: "btn btn-ghost btn-sm",
-            //   onclick: move |_| {
-            //       document::eval(r#"document.getElementById("register_modal").showModal();"#);
-            //   },
-            //   "Register"
-            // }
+          }
+          div { class: "navbar-end md:hidden",
+            label {
+              class: "swap swap-rotate",
+              class: if show_menu() { "swap-active" },
+              r#for: "mobile-menu",
+              id: "mobile-menu-button",
+              aria_label: "open menu",
+              onclick: move |_| {
+                  show_menu.toggle();
+              },
+              Icon { icon: LdMenu, class: "swap-on" }
+              Icon { icon: LdX, class: "swap-off" }
+            }
+          }
+        }
+        div {
+          class: "md:hidden mt-4 pb-4",
+          class: if show_menu() { "hidden" },
+          id: "mobile-menu",
+          div { class: "menu menu-vertical space-y-3 justify-items-center w-full",
             Link {
-              class: "btn btn-primary btn-sm",
-              to: Route::SignIn {},
-              "Login"
+              to: Route::Index {},
+              class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+              Icon {
+                icon: LdHome,
+                class: "inline align-text-bottom mr-3",
+              }
+              "Home"
             }
-                    // button {
-          //   class: "btn btn-primary btn-sm",
-          //   onclick: move |_| {
-          //       document::eval(r#"document.getElementById("login_modal").showModal();"#);
-          //   },
-          //   "Login"
-          // }
-          }
-        }
-      }
-      div { class: "drawer",
-        input {
-          id: "menu-drawer",
-          r#type: "checkbox",
-          class: "drawer-toggle",
-        }
-        div { class: "drawer-side",
-          label {
-            r#for: "menu-drawer",
-            aria_label: "close sidebar",
-            class: "drawer-overlay",
-          }
-          div { class: "bg-base-100 min-h-full w-60 p-5",
-            Link { to: Route::Index {}, aria_label: "Home", Logo {} }
-            ul { class: "menu w-full gap-2 p-0 pt-4",
-              li { class: "font-medium",
-                a { href: "#features", "Features" }
+            a {
+              class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+              href: "#",
+              Icon {
+                icon: LdInfo,
+                class: "inline align-text-bottom mr-3",
               }
-              li { class: "font-medium",
-                a { href: "#pricing", "Pricing" }
+              "About Us"
+            }
+            a {
+              class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+              href: "/#faq",
+              Icon {
+                icon: LdMessageCircleQuestion,
+                class: "inline align-text-bottom relative mr-3",
               }
-              li { class: "font-medium",
-                a { href: "#faq", "FAQ" }
+              "FAQ"
+            }
+            a {
+              class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+              href: "/#pricing",
+              Icon {
+                icon: LdTag,
+                class: "inline align-text-bottom mr-3",
               }
+              "Pricing"
+            }
+            Link {
+              class: "w-full btn btn-lg bg-linear-to-br from-primary to-secondary font-semibold text-base-200 p-0",
+              to: Route::SignUp {},
+              "Get Started"
             }
           }
         }

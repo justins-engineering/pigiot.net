@@ -1,5 +1,5 @@
 [application]
-name = "perch"
+name = "pigiot-net"
 asset_dir = "public"
 
 [bundle]
@@ -16,7 +16,7 @@ icon = [
 [web.app]
 
 # HTML title tag content
-title = "Perch"
+title = "Pigiot"
 
 [web.resource.dev]
 # Javascript code file

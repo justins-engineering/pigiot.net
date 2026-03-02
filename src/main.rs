@@ -1,7 +1,9 @@
 #![forbid(unsafe_code)]
 
 use dioxus::prelude::*;
+use dioxus_i18n::prelude::*;
 use ory_kratos_client_wasm::apis::configuration::Configuration;
+use unic_langid::langid;
 use views::{
   Index, LoginFlow, PageNotFound, RegisterFlow, ServerError, SignIn, SignUp, VerificationFlow,
   Verify, Wrapper,
@@ -98,6 +100,15 @@ fn main() {
 
 #[component]
 fn App() -> Element {
+  use_init_i18n(|| {
+    I18nConfig::new(langid!("en-US")).with_locale(Locale::new_static(
+      langid!("en-US"),
+      include_str!("../locales/en-US.ftl"),
+    ))
+  });
+
+  use_effect(crate::components::set_lang);
+
   rsx! {
     document::Link { rel: "stylesheet", href: MAIN_CSS }
     document::Link {
@@ -133,6 +144,10 @@ fn App() -> Element {
       r#type: "image/svg+xml",
       href: asset!("/assets/images/icon-dark.svg"),
       media: "prefers-color-scheme: dark",
+    }
+    document::Meta {
+      name: "description",
+      content: "An open-source IoT platform built in Rust. Security, performance, and reliability by design.",
     }
     Router::<Route> {}
   }
