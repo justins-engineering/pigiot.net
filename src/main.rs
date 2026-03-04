@@ -5,8 +5,8 @@ use dioxus_i18n::prelude::*;
 use ory_kratos_client_wasm::apis::configuration::Configuration;
 use unic_langid::langid;
 use views::{
-  Index, LoginFlow, PageNotFound, RegisterFlow, ServerError, SignIn, SignUp, VerificationFlow,
-  Verify, Wrapper,
+  About, Faq, Index, LoginFlow, PageNotFound, RegisterFlow, ServerError, SignIn, SignUp,
+  VerificationFlow, Verify, Wrapper,
 };
 
 mod components;
@@ -38,6 +38,10 @@ enum Route {
   #[layout(Wrapper)]
     #[route("/")]
     Index {},
+    #[route("/faq")]
+    Faq {},
+    #[route("/about")]
+    About {},
     #[route("/sign-in")]
     SignIn {},
     #[route("/login?:flow")]

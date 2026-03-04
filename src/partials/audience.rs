@@ -10,7 +10,7 @@ pub fn Audience() -> Element {
         div { class: "text-center mb-16 scroll-reveal",
           h2 { class: "text-3xl md:text-4xl font-bold mb-4", "Built for the Builders" }
           p { class: "text-xl text-gray-400 max-w-3xl mx-auto",
-            "        Pigeon IoT is designed for engineers and businesses who demand performance, security, and control.    "
+            "PigIoT is designed for engineers and businesses who demand performance, security, and control."
           }
         }
         div { class: "grid grid-cols-1 md:grid-cols-3 gap-8",
@@ -26,7 +26,7 @@ pub fn Audience() -> Element {
               h3 { class: "text-2xl font-bold", "Open Source" }
             }
             p { class: "text-gray-400 mb-6 leading-relaxed",
-              "            Fully transparent codebase with an active community. Contribute, fork, or customize to your needs.        "
+              "Fully transparent codebase with an active community. Contribute, fork, or customize to your needs."
             }
             ul { class: "space-y-4",
               li { class: "flex items-center",

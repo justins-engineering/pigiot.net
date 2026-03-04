@@ -6,7 +6,7 @@ use dioxus::prelude::*;
 pub fn Wrapper() -> Element {
   rsx! {
     Navbar {}
-    main { class: "flex-1", Outlet::<Route> {} }
+    main { Outlet::<Route> {} }
     ThemeController {}
     Footer {}
   }

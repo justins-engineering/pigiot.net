@@ -16,7 +16,7 @@ icon = [
 [web.app]
 
 # HTML title tag content
-title = "Pigiot"
+title = "PigIoT | Open Source IoT"
 
 [web.resource.dev]
 # Javascript code file

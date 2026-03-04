@@ -18,6 +18,12 @@ pub use error::ServerError;
 mod wrapper;
 pub use wrapper::Wrapper;
 
+mod about;
+pub use about::About;
+
+mod faq;
+pub use faq::Faq;
+
 mod login;
 pub use login::LoginFlow;
 pub use login::SignIn;

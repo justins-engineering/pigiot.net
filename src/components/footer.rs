@@ -1,3 +1,4 @@
+use crate::Route;
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
 use dioxus_free_icons::icons::fa_brands_icons::{FaDiscord, FaGithub, FaYoutube};
@@ -7,7 +8,7 @@ use web_time::{SystemTime, UNIX_EPOCH};
 #[component]
 pub fn Footer() -> Element {
   rsx! {
-    footer { class: "bg-stone-900/80 border-t border-stone-800/50 py-12",
+    footer { class: "footer footer-horizontal bg-base-300 border-t border-base-content/10 pt-8",
       div { class: "container mx-auto px-4 sm:px-6",
         div { class: "flex flex-col lg:flex-row justify-between items-start gap-12",
           div { class: "lg:w-2/5",
@@ -24,12 +25,12 @@ pub fn Footer() -> Element {
                 span { class: "text-teal-400", "PigIoT" }
               }
             }
-            p { class: "text-gray-400 mb-8 leading-relaxed",
+            p { class: "text-base mb-8 leading-relaxed",
               "An open-source IoT platform built in Rust. Security, performance, and reliability by design. Join our community of builders creating the future of connected devices."
             }
             div { class: "flex space-x-4",
               a {
-                class: "btn btn-circle bg-stone-800 hover:bg-teal-900/50 hover:text-teal-400 transition-all duration-300",
+                class: "btn btn-circle bg-base-100 hover:bg-teal-900/50 hover:text-teal-400 transition-all duration-300",
                 href: "https://github.com/justins-engineering",
                 Icon {
                   icon: FaGithub,
@@ -38,7 +39,7 @@ pub fn Footer() -> Element {
                 }
               }
               a {
-                class: "btn btn-circle bg-stone-800 hover:bg-purple-900/50 hover:text-purple-400 transition-all duration-300",
+                class: "btn btn-circle bg-base-100 hover:bg-purple-900/50 hover:text-purple-400 transition-all duration-300",
                 href: "#",
                 Icon {
                   icon: FaDiscord,
@@ -47,7 +48,7 @@ pub fn Footer() -> Element {
                 }
               }
               a {
-                class: "btn btn-circle bg-stone-800 hover:bg-red-900/50 hover:text-red-400 transition-all duration-300",
+                class: "btn btn-circle bg-base-100 hover:bg-red-900/50 hover:text-red-400 transition-all duration-300",
                 href: "#",
                 Icon {
                   icon: FaYoutube,
@@ -58,14 +59,14 @@ pub fn Footer() -> Element {
             }
           }
           div { class: "grid grid-cols-2 md:grid-cols-3 gap-8 lg:w-3/5",
-            div {
-              h4 { class: "font-bold text-lg mb-4 ml-6 text-teal-300",
+            nav {
+              h4 { class: "footer-title text-lg ml-6 text-teal-300",
                 "Product"
               }
               ul { class: "space-y-3",
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -77,7 +78,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -89,7 +90,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -101,7 +102,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -113,15 +114,16 @@ pub fn Footer() -> Element {
                 }
               }
             }
-            div {
-              h4 { class: "font-bold text-lg mb-4 ml-6 text-purple-300",
+            nav {
+              h4 { class: "footer-title text-lg ml-6 text-purple-300",
                 "Company"
               }
               ul { class: "space-y-3",
                 li {
-                  a {
-                    class: "text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center group",
-                    href: "#",
+
+                  Link {
+                    class: "text-base hover:text-purple-400 transition-colors duration-300 flex items-center group",
+                    to: Route::About {},
                     Icon {
                       icon: LdChevronRight,
                       class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
@@ -132,7 +134,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-purple-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -144,7 +146,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-purple-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -156,7 +158,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-purple-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -168,14 +170,14 @@ pub fn Footer() -> Element {
                 }
               }
             }
-            div {
-              h4 { class: "font-bold text-lg mb-4 ml-6 text-teal-300",
+            nav {
+              h4 { class: "footer-title text-lg ml-6 text-teal-300",
                 "Community"
               }
               ul { class: "space-y-3",
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "https://github.com/justins-engineering",
                     Icon {
                       icon: LdChevronRight,
@@ -187,7 +189,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -199,7 +201,7 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group",
+                    class: "text-base hover:text-teal-400 transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
@@ -213,8 +215,8 @@ pub fn Footer() -> Element {
             }
           }
         }
-        aside { class: "mt-12 pt-8 border-t border-stone-800/50 flex flex-col md:flex-row justify-between items-center",
-          p { class: "text-gray-500 mb-4 md:mb-0 text-sm",
+        aside { class: "mt-6 pt-2 border-t border-base-content/10 w-full flex flex-col md:flex-row justify-between items-center",
+          p { class: "text-gray-500 mb-1 md:mb-0 text-sm",
             "© {1970 + (SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs()/31556926)} Justin's Engineering Services, LLC."
           }
           div { class: "flex items-center space-x-6",
