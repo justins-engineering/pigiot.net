@@ -1,8 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
-use dioxus_free_icons::icons::ld_icons::{
-  LdArrowRight, LdCheck, LdCodeXml, LdCopyleft, LdLockKeyhole, LdUserCog, LdX,
-};
+use dioxus_free_icons::icons::ld_icons::{LdCheck, LdCodeXml, LdCopyleft, LdLockKeyhole, LdX};
 
 #[component]
 pub fn Features() -> Element {
@@ -29,7 +27,7 @@ pub fn Features() -> Element {
                 title: "Code Icon",
               }
             }
-            h3 { class: "text-2xl font-bold", "Native interoperability" }
+            h3 { class: "text-2xl font-bold", "Interoperability" }
           }
           ul { class: "space-y-4",
             li { class: "flex items-center",
@@ -75,7 +73,7 @@ pub fn Features() -> Element {
                 title: "Lock Icon",
               }
             }
-            h3 { class: "text-2xl font-bold", "Security by Design" }
+            h3 { class: "text-2xl font-bold", "Security" }
           }
           ul { class: "space-y-4",
             li { class: "flex items-center",

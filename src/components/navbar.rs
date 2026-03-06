@@ -12,7 +12,7 @@ pub fn Navbar() -> Element {
 
   rsx! {
     header { class: "w-full sticky top-0 z-50 backdrop-blur-md bg-base-200/80 border-b border-stone-800/50 shadow-lg",
-      nav { class: "navbar sm:px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24",
+      nav { class: "navbar sm:px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64",
         div { class: "navbar-start space-x-3",
           div { class: "size-10 rounded-full flex items-center justify-center bg-linear-to-br from-teal-600 to-purple-600 animate-glow",
             // Logo {}

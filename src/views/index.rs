@@ -1,4 +1,4 @@
-use crate::partials::{Audience, CodeShowcase, Connectivity, Cta, Features, Home, Infrastructure};
+use crate::partials::{CodeShowcase, Connectivity, Cta, Features, Home, Infrastructure};
 use dioxus::prelude::*;
 
 #[component]

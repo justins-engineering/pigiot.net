@@ -24,7 +24,7 @@ pub fn Home() -> Element {
           span { class: "text-secondary", " Your control." }
         }
       }
-      div { class: "flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0",
+      div { class: "flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64",
         Link {
           class: "btn btn-xl grow btn-glow font-bold hover:animate-glow bflex bg-linear-to-r from-teal-600 to-purple-600",
           to: Route::SignUp {},

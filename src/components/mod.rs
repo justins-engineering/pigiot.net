@@ -3,7 +3,7 @@
 //! component and an Echo component for fullstack apps to be used in our app.
 
 mod logo;
-pub use logo::Logo;
+// pub use logo::Logo;
 
 mod navbar;
 pub use navbar::Navbar;
@@ -31,3 +31,6 @@ pub use ory_error::DisplayError;
 
 mod lang;
 pub use lang::set_lang;
+
+mod alert;
+pub use alert::Alert;
