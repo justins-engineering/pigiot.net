@@ -1,9 +1,18 @@
-name = "perch"
-compatibility_date = "2026-02-16"
+name = "pigiot-net"
+compatibility_date = "2026-03-06"
 send_metrics = false
 # workers_dev = false
+# main = "build/worker/shim.mjs"
+
+[[routes]]
+pattern = "pigiot.net"
+custom_domain = true
 
 [assets]
-directory = "./target/dx/perch/release/web/public"
-binding = "ASSETS"
+directory = "./target/dx/pigiot-net/release/web/public"
+# binding = "ASSETS"
 not_found_handling = "single-page-application"
+
+# [build]
+# command = "bunx @tailwindcss/cli -i ./assets/tailwind.css -o ./assets/styling/main.css -m && dx build --web --ssg --release --debug-symbols=false && cargo install -q worker-build && worker-build --release"
+# watch_dir = ["./src"]

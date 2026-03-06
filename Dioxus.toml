@@ -14,17 +14,10 @@ icon = [
 ]
 
 [web.app]
-
-# HTML title tag content
 title = "PigIoT | Open Source IoT"
-
-[web.resource.dev]
-# Javascript code file
-# serve: [dev-server] only
-script = []
 
 [web.watcher]
 index_on_404 = true
 
 [web]
-# pre_compress = true
+pre_compress = false
