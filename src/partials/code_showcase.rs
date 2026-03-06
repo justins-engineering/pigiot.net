@@ -6,7 +6,7 @@ use dioxus_free_icons::icons::ld_icons::LdCheck;
 #[component]
 pub fn CodeShowcase() -> Element {
   rsx! {
-    section { id: "showcase", class: "py-20",
+    section { id: "showcase", class: "front-page",
       div { class: "flex flex-col lg:flex-row items-center gap-12",
         div { class: "lg:w-1/2 scroll-reveal",
           div { class: "inline-flex items-center px-4 py-2 rounded-full bg-stone-800/80 border border-stone-700 mb-6",

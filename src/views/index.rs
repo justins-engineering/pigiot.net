@@ -8,7 +8,6 @@ pub fn Index() -> Element {
     Features {}
     CodeShowcase {}
     Connectivity {}
-    Audience {}
     Infrastructure {}
     Cta {}
   }

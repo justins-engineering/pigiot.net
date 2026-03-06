@@ -7,21 +7,18 @@ use dioxus_free_icons::icons::ld_icons::{LdChevronsDown, LdRocket};
 #[component]
 pub fn Home() -> Element {
   rsx! {
-    section {
-      id: "home",
-      class: "my-12 w-full h-dvh lg:w-7/10 2xl:w-1/3 animate-slide-in",
+    section { id: "home", class: "front-page animate-slide-in",
       h1 { class: "text-center text-4xl md:text-6xl lg:text-7xl font-bold leading-tight",
-        "The"
+        span { class: "italic", "The" }
         span { class: "gradient-text font-extrabold block", "No Compromise" }
         "IoT Platform"
       }
-      article { class: "text-xl text-center my-8 leading-relaxed",
+      article { class: "flex flex-col space-y-4 @min-[22rem]:space-y-8 text-xl text-pretty text-center leading-relaxed",
         p {
           "An open-source, distributed, and efficient IoT platform. Built in "
           span { class: "text-orange-400", "Rust" }
           ", from front to back. Designed with security, privacy, and flexibility in mind."
         }
-        br {}
         p {
           span { class: "text-primary", " Your data." }
           span { class: "text-secondary", " Your control." }
@@ -45,11 +42,13 @@ pub fn Home() -> Element {
           "View on GitHub"
         }
       }
-      div { class: "size-full my-auto",
-        Icon {
-          icon: LdChevronsDown,
-          class: "size-15 mx-auto stroke-primary animate-pulse-slow",
-          title: "Scroll for more info",
+      div { class: "mx-auto",
+        a { href: "/#features",
+          Icon {
+            icon: LdChevronsDown,
+            class: "size-15 mx-auto stroke-primary animate-pulse-slow",
+            title: "Scroll for more info",
+          }
         }
       }
     }

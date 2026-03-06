@@ -9,7 +9,7 @@ use web_time::{SystemTime, UNIX_EPOCH};
 pub fn Footer() -> Element {
   rsx! {
     footer { class: "footer footer-horizontal bg-base-300 border-t border-base-content/10 pt-8",
-      div { class: "container mx-auto px-4 sm:px-6",
+      div { class: "mx-auto px-4 sm:px-6",
         div { class: "flex flex-col lg:flex-row justify-between items-start gap-12",
           div { class: "lg:w-2/5",
             div { class: "flex items-center space-x-3 mb-6",
