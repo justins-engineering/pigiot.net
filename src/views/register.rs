@@ -75,8 +75,14 @@ pub fn RegisterFlow(flow: String) -> Element {
           }
         }
       }
+      Err(ory_kratos_client_wasm::apis::Error::ResponseError(res)) => {
+        error!("ResponseError");
+        rsx! {
+          {res.to_owned().view_response_content()}
+        }
+      }
       Err(err) => {
-        navigator().replace(Route::SignUp {});
+        // navigator().replace(Route::SignUp {});
         error!("{err:#?}");
         rsx! {
           p { "Failed to get RegistrationFlow! Error:\n {err:#?}" }

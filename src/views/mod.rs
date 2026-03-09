@@ -32,17 +32,17 @@ mod register;
 pub use register::RegisterFlow;
 pub use register::SignUp;
 
-// mod settings;
-// pub use settings::Settings;
-// pub use settings::SettingsFlow;
+mod settings;
+pub use settings::Settings;
+pub use settings::SettingsFlow;
 
 mod verification;
 pub use verification::VerificationFlow;
 pub use verification::Verify;
 
-// mod recovery;
-// pub use recovery::AccountRecovery;
-// pub use recovery::RecoveryFlow;
+mod recovery;
+pub use recovery::AccountRecovery;
+pub use recovery::RecoveryFlow;
 
-// mod session;
-// pub use session::SessionInfo;
+mod session;
+pub use session::SessionInfo;

@@ -5,15 +5,25 @@ use dioxus_i18n::prelude::*;
 use ory_kratos_client_wasm::apis::configuration::Configuration;
 use unic_langid::langid;
 use views::{
-  About, Faq, Index, LoginFlow, PageNotFound, RegisterFlow, ServerError, SignIn, SignUp,
-  VerificationFlow, Verify, Wrapper,
+  About, AccountRecovery, Faq, Index, LoginFlow, PageNotFound, RecoveryFlow, RegisterFlow,
+  ServerError, SessionInfo, Settings, SettingsFlow, SignIn, SignUp, VerificationFlow, Verify,
+  Wrapper,
 };
+
+use crate::components::{SetSessionCookie, session_cookie_valid};
 
 mod components;
 mod partials;
 mod views;
 
 const KRATOS_BROWSER_URL: &str = "http://127.0.0.1:4433";
+// const KRATOS_BROWSER_URL: &str = "https://kratos-public.pigiot.net";
+const SESSION_COOKIE_NAME: &str = "session_expiry";
+
+#[derive(Clone, Copy, Debug)]
+struct Session {
+  state: Signal<bool>,
+}
 
 trait Create {
   fn create() -> Configuration;
@@ -42,6 +52,8 @@ enum Route {
     Faq {},
     #[route("/about")]
     About {},
+    #[route("/session")]
+    SessionInfo {},
     #[route("/sign-in")]
     SignIn {},
     #[route("/login?:flow")]
@@ -54,6 +66,16 @@ enum Route {
     Verify {},
     #[route("/verification?:flow")]
     VerificationFlow { flow: String },
+    #[route("/my-settings")]
+    Settings {},
+    #[route("/settings?:flow")]
+    SettingsFlow { flow: String },
+    #[route("/account-recovery")]
+    AccountRecovery {},
+    #[route("/recovery?:flow")]
+    RecoveryFlow { flow: String },
+    #[route("/session/local?:state")]
+    SetSessionCookie { state: bool },
     #[end_layout]
   #[route("/error?:id")]
   ServerError { id: String },
@@ -66,40 +88,41 @@ const MAIN_CSS: Asset = asset!("/assets/styling/main.css");
 // The server function at the endpoint "static_routes" will be called by the CLI to generate the list of static
 // routes. You must explicitly set the endpoint to `"static_routes"` in the server function attribute instead of
 // the default randomly generated endpoint.
-#[server(endpoint = "static_routes", output = server_fn::codec::Json)]
-async fn static_routes() -> Result<Vec<String>, ServerFnError> {
-  // The `Routable` trait has a `static_routes` method that returns all static routes in the enum
-  Ok(
-    Route::static_routes()
-      .iter()
-      .map(ToString::to_string)
-      .collect(),
-  )
-}
+// #[server(endpoint = "static_routes", output = server_fn::codec::Json)]
+// async fn static_routes() -> Result<Vec<String>, ServerFnError> {
+//   // The `Routable` trait has a `static_routes` method that returns all static routes in the enum
+//   Ok(
+//     Route::static_routes()
+//       .iter()
+//       .map(ToString::to_string)
+//       .collect(),
+//   )
+// }
 
 fn main() {
-  dioxus::LaunchBuilder::new()
-    // Set the server config only if we are building the server target
-    .with_cfg(server_only! {
-        ServeConfig::builder()
-            // Enable incremental rendering
-            .incremental(
-                dioxus::server::IncrementalRendererConfig::new()
-                    // Store static files in the public directory where other static assets like wasm are stored
-                    .static_dir(
-                        std::env::current_exe()
-                            .unwrap()
-                            .parent()
-                            .unwrap()
-                            .join("public")
-                    )
-                    // Don't clear the public folder on every build. The public folder has other files including the wasm
-                    // binary and static assets required for the app to run
-                    .clear_cache(false)
-            )
-            .enable_out_of_order_streaming()
-    })
-    .launch(App);
+  // dioxus::LaunchBuilder::new()
+  //   // Set the server config only if we are building the server target
+  //   .with_cfg(server_only! {
+  //       ServeConfig::builder()
+  //           // Enable incremental rendering
+  //           .incremental(
+  //               dioxus::server::IncrementalRendererConfig::new()
+  //                   // Store static files in the public directory where other static assets like wasm are stored
+  //                   .static_dir(
+  //                       std::env::current_exe()
+  //                           .unwrap()
+  //                           .parent()
+  //                           .unwrap()
+  //                           .join("public")
+  //                   )
+  //                   // Don't clear the public folder on every build. The public folder has other files including the wasm
+  //                   // binary and static assets required for the app to run
+  //                   .clear_cache(false)
+  //           )
+  //           .enable_out_of_order_streaming()
+  //   })
+  //   .launch(App);
+  dioxus::launch(App);
 }
 
 #[component]
@@ -112,6 +135,15 @@ fn App() -> Element {
   });
 
   use_effect(crate::components::set_lang);
+
+  use_context_provider(|| Session {
+    state: Signal::new(false),
+  });
+
+  let set_state = use_resource(move || async move { session_cookie_valid().await });
+  (set_state)();
+
+  debug!("{:?}", use_context::<Session>());
 
   rsx! {
     document::Link { rel: "stylesheet", href: MAIN_CSS }

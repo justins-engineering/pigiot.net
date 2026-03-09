@@ -1,9 +1,10 @@
 // use crate::components::Logo;
-use crate::Route;
+use crate::components::OryLogOut;
+use crate::{Route, Session};
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
 use dioxus_free_icons::icons::ld_icons::{
-  LdBird, LdHome, LdInfo, LdMenu, LdMessageCircleQuestion, LdTag, LdX,
+  LdBird, LdHome, LdInfo, LdLogIn, LdMenu, LdMessageCircleQuestion, LdTag, LdX,
 };
 
 #[component]
@@ -48,11 +49,26 @@ pub fn Navbar() -> Element {
             }
           }
         }
-        div { class: "navbar-end hidden md:flex",
-          Link {
-            class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-r from-teal-700 to-purple-600 font-semibold",
-            to: Route::SignUp {},
-            "Get Started"
+        div { class: "navbar-end hidden md:flex space-x-4",
+          if *use_context::<Session>().state.read() {
+            a {
+              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-r from-teal-700 to-purple-600 font-semibold",
+              href: "https://dashboard.pigiot.net",
+              "Dashboard"
+            }
+            OryLogOut {}
+          } else {
+            Link {
+              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-r from-teal-700 to-purple-600 font-semibold",
+              to: Route::SignUp {},
+              "Get Started"
+            }
+            Link {
+              class: "btn btn-lg bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+              to: Route::SignIn {},
+              Icon { icon: LdLogIn, title: "Login" }
+              "Login"
+            }
           }
         }
         div { class: "navbar-end md:hidden",
@@ -111,10 +127,25 @@ pub fn Navbar() -> Element {
             }
             "Pricing"
           }
-          Link {
-            class: "w-full btn btn-lg bg-linear-to-br from-primary to-secondary font-semibold p-0",
-            to: Route::SignUp {},
-            "Get Started"
+          if *use_context::<Session>().state.read() {
+            a {
+              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-br from-primary to-secondary font-semibold p-0",
+              href: "https://dashboard.pigiot.net",
+              "Dashboard"
+            }
+            OryLogOut {}
+          } else {
+            Link {
+              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-br from-primary to-secondary font-semibold p-0",
+              to: Route::SignUp {},
+              "Get Started"
+            }
+            Link {
+              class: "btn btn-lg bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+              to: Route::SignIn {},
+              Icon { icon: LdLogIn, title: "Login" }
+              "Login"
+            }
           }
         }
       }

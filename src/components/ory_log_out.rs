@@ -1,6 +1,8 @@
 use crate::{Configuration, Create};
 use dioxus::logger::tracing::error;
 use dioxus::prelude::*;
+use dioxus_free_icons::Icon;
+use dioxus_free_icons::icons::ld_icons::LdLogOut;
 use ory_kratos_client_wasm::apis::frontend_api::create_browser_logout_flow;
 
 #[component]
@@ -13,7 +15,12 @@ pub fn OryLogOut() -> Element {
     Some(new_flow) => match new_flow {
       Ok(res) => {
         rsx! {
-          a { href: res.logout_url.clone(), "Log out" }
+          a {
+            class: "btn btn-lg bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+            href: res.logout_url.clone(),
+            Icon { icon: LdLogOut, title: "Logout" }
+            "Logout"
+          }
         }
       }
       Err(ory_kratos_client_wasm::apis::Error::ResponseError(_res)) => {

@@ -1,17 +1,17 @@
 use crate::Route;
 use dioxus::prelude::*;
+use ory_kratos_client_wasm::apis::ResponseContent;
 use ory_kratos_client_wasm::apis::frontend_api::{
   CreateBrowserLoginFlowError, CreateBrowserLogoutFlowError, CreateBrowserRecoveryFlowError,
   CreateBrowserRegistrationFlowError, CreateBrowserSettingsFlowError,
-  CreateBrowserVerificationFlowError, ToSessionError,
+  CreateBrowserVerificationFlowError, GetRegistrationFlowError, ToSessionError,
 };
-use ory_kratos_client_wasm::apis::ResponseContent;
 use ory_kratos_client_wasm::models::error_generic::ErrorGeneric;
 
 fn error_content_rsx(err: ErrorGeneric) -> Element {
   rsx! {
     div { class: "text-center max-h-screen max-w-none",
-      h1 { class: "text-2xl my-8", {err.error.message} }
+      h1 { class: "text-2xl my-8 capitalize", {err.error.message} }
       p { class: "font-light m-8", {err.error.reason} }
       Link { to: Route::Index {}, class: "btn btn-primary my-8", "Go Home" }
     }
@@ -40,6 +40,34 @@ impl DisplayError for ResponseContent<CreateBrowserRegistrationFlowError> {
         },
         CreateBrowserRegistrationFlowError::UnknownValue(value) => rsx! {
           {error_content_js(value)}
+        },
+      }
+    } else {
+      rsx! {
+        p { {self.content.to_string()} }
+      }
+    }
+  }
+}
+
+impl DisplayError for ResponseContent<GetRegistrationFlowError> {
+  fn view_response_content(self) -> Element {
+    if let Some(ent) = self.entity {
+      match ent {
+        GetRegistrationFlowError::DefaultResponse(error_generic) => rsx! {
+          {error_content_rsx(error_generic)}
+        },
+        GetRegistrationFlowError::UnknownValue(value) => rsx! {
+          {error_content_js(value)}
+        },
+        GetRegistrationFlowError::Status403(error_generic) => rsx! {
+          {error_content_rsx(error_generic)}
+        },
+        GetRegistrationFlowError::Status404(error_generic) => rsx! {
+          {error_content_rsx(error_generic)}
+        },
+        GetRegistrationFlowError::Status410(error_generic) => rsx! {
+          {error_content_rsx(error_generic)}
         },
       }
     } else {

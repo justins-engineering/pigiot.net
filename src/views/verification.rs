@@ -1,6 +1,6 @@
 use crate::components::{DisplayError, FormBuilder};
 use crate::{Configuration, Create, Route};
-use dioxus::logger::tracing::{debug, error};
+use dioxus::logger::tracing::error;
 use dioxus::prelude::*;
 use ory_kratos_client_wasm::apis::frontend_api::{
   create_browser_verification_flow, get_verification_flow,
@@ -15,7 +15,6 @@ pub fn Verify() -> Element {
   return match &*create_flow.read() {
     Some(new_flow) => match new_flow {
       Ok(res) => {
-        debug!("{res:#?}");
         rsx! {
           h1 { class: "text-center text-2xl", "Account Verification" }
           div { class: "mx-auto w-full max-w-lg",
@@ -58,7 +57,6 @@ pub fn VerificationFlow(flow: String) -> Element {
   return match &*get_flow.read() {
     Some(new_flow) => match new_flow {
       Ok(res) => {
-        debug!("{res:#?}");
         rsx! {
           h1 { class: "text-center text-2xl", "Account Verification" }
           div { class: "mx-auto w-full max-w-lg",

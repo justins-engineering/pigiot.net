@@ -10,9 +10,6 @@ pub use code_showcase::CodeShowcase;
 mod connectivity;
 pub use connectivity::Connectivity;
 
-mod audience;
-pub use audience::Audience;
-
 mod infrastructure;
 pub use infrastructure::Infrastructure;
 
