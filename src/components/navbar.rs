@@ -72,11 +72,9 @@ pub fn Navbar() -> Element {
           }
         }
         div { class: "navbar-end md:hidden",
-          label {
+          div {
             class: "swap swap-rotate",
             class: if show_menu() { "swap-active" },
-            r#for: "mobile-menu",
-            id: "mobile-menu-button",
             aria_label: "open menu",
             onclick: move |_| {
                 show_menu.toggle();

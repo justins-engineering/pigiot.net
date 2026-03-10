@@ -1,8 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
-use dioxus_free_icons::icons::ld_icons::{
-  LdArrowRight, LdBuilding, LdCheck, LdDatabaseBackup, LdSatelliteDish, LdServer,
-};
+use dioxus_free_icons::icons::ld_icons::{LdBuilding, LdDatabaseBackup, LdSatelliteDish, LdServer};
 
 #[component]
 pub fn Infrastructure() -> Element {
