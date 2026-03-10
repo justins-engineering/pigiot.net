@@ -17,7 +17,11 @@ mod partials;
 mod views;
 
 const KRATOS_BROWSER_URL: &str = "http://127.0.0.1:4433";
+const DASHBOARD_URL: &str = "http://127.0.0.1:8080";
+
 // const KRATOS_BROWSER_URL: &str = "https://kratos-public.pigiot.net";
+// const DASHBOARD_URL: &str = "https://dashboard.pigiot.net";
+
 const SESSION_COOKIE_NAME: &str = "session_expiry";
 
 #[derive(Clone, Copy, Debug)]
@@ -142,8 +146,6 @@ fn App() -> Element {
 
   let set_state = use_resource(move || async move { session_cookie_valid().await });
   (set_state)();
-
-  debug!("{:?}", use_context::<Session>());
 
   rsx! {
     document::Link { rel: "stylesheet", href: MAIN_CSS }

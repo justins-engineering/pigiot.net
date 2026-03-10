@@ -16,7 +16,7 @@ pub fn Home() -> Element {
       article { class: "flex flex-col space-y-4 @min-[22rem]:space-y-8 text-xl text-pretty text-center leading-relaxed",
         p {
           "An open-source, distributed, and efficient IoT platform. Built in "
-          span { class: "text-orange-400", "Rust" }
+          span { class: "text-orange-700 dark:text-orange-400", "Rust" }
           ", from front to back. Designed with security, privacy, and flexibility in mind."
         }
         p {
@@ -26,7 +26,7 @@ pub fn Home() -> Element {
       }
       div { class: "flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64",
         Link {
-          class: "btn btn-xl grow btn-glow font-bold hover:animate-glow bflex bg-linear-to-r from-teal-600 to-purple-600",
+          class: "grow btn btn-xl btn-glow font-bold",
           to: Route::SignUp {},
           Icon {
             icon: LdRocket,
@@ -36,7 +36,7 @@ pub fn Home() -> Element {
           "Get Started Free"
         }
         a {
-          class: "btn btn-xl grow bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+          class: "grow btn btn-xl btn-special font-bold",
           href: "https://github.com/justins-engineering",
           Icon { icon: FaGithub, class: "mr-2", title: "GitHub logo" }
           "View on GitHub"

@@ -2,30 +2,30 @@
 @plugin 'daisyui';
 
 @plugin "daisyui/theme" {
-  name: "default";
+  name: "light";
   default: true;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: oklch(98% 0 0);
-  --color-base-200: oklch(97% 0 0);
-  --color-base-300: oklch(92% 0 0);
-  --color-base-content: oklch(20% 0 0);
-  --color-primary: oklch(77% 0.152 181.912);
-  --color-primary-content: oklch(27% 0.046 192.524);
-  --color-secondary: oklch(62% 0.265 303.9);
-  --color-secondary-content: oklch(0% 0 0);
-  --color-accent: oklch(0.879 0.0535 80.04);
-  --color-accent-content: oklch(42% 0.095 57.708);
-  --color-neutral: oklch(12% 0.042 264.695);
-  --color-neutral-content: oklch(92% 0.013 255.508);
-  --color-info: oklch(82% 0.111 230.318);
-  --color-info-content: oklch(39% 0.09 240.876);
+  --color-base-100: oklch(98% 0.001 106.423);
+  --color-base-200: oklch(97% 0.001 106.424);
+  --color-base-300: oklch(92% 0.003 48.717);
+  --color-base-content: oklch(21% 0.006 56.043);
+  --color-primary: oklch(55% 0.288 302.321);
+  --color-primary-content: oklch(97% 0.014 308.299);
+  --color-secondary: oklch(51% 0.096 186.391);
+  --color-secondary-content: oklch(98% 0.014 180.72);
+  --color-accent: oklch(90% 0.076 70.697);
+  --color-accent-content: oklch(40% 0.123 38.172);
+  --color-neutral: oklch(100% 0 0);
+  --color-neutral-content: oklch(0% 0 0);
+  --color-info: oklch(78% 0.154 211.53);
+  --color-info-content: oklch(29% 0.066 243.157);
   --color-success: oklch(76% 0.177 163.223);
   --color-success-content: oklch(37% 0.077 168.94);
-  --color-warning: oklch(90% 0.182 98.111);
-  --color-warning-content: oklch(47% 0.114 61.907);
-  --color-error: oklch(70% 0.191 22.216);
-  --color-error-content: oklch(25% 0.092 26.042);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.5rem;
@@ -47,18 +47,18 @@
   --color-base-content: oklch(97.807% 0.029 256.847);
   --color-primary: oklch(77% 0.152 181.912);
   --color-primary-content: oklch(27% 0.046 192.524);
-  --color-secondary: oklch(62% 0.265 303.9);
-  --color-secondary-content: oklch(0% 0 0);
-  --color-accent: oklch(87.9% 0.054 80.04);
+  --color-secondary: oklch(71% 0.203 305.504);
+  --color-secondary-content: oklch(29% 0.149 302.717);
+  --color-accent: oklch(90% 0.076 70.697);
   --color-accent-content: oklch(42% 0.095 57.708);
-  --color-neutral: oklch(14% 0 0);
-  --color-neutral-content: oklch(97% 0.001 106.424);
+  --color-neutral: oklch(0% 0 0);
+  --color-neutral-content: oklch(100% 0 0);
   --color-info: oklch(82% 0.111 230.318);
   --color-info-content: oklch(39% 0.09 240.876);
   --color-success: oklch(76% 0.177 163.223);
   --color-success-content: oklch(37% 0.077 168.94);
   --color-warning: oklch(90% 0.182 98.111);
-  --color-warning-content: oklch(47% 0.114 61.907);
+  --color-warning-content: oklch(42% 0.095 57.708);
   --color-error: oklch(70% 0.191 22.216);
   --color-error-content: oklch(25% 0.092 26.042);
   --radius-selector: 0.5rem;
@@ -70,6 +70,8 @@
   --depth: 1;
   --noise: 0;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @font-face {
   font-family: "SourceCodePro";
@@ -89,7 +91,7 @@
   --font-mono: "SourceCodePro", ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono",
     "Courier New", monospace;
 
-  --color-base-100: oklch(26% 0.007 34.298);
+  /* --color-base-100: oklch(26% 0.007 34.298);
   --color-base-200: oklch(21% 0.006 56.043);
   --color-base-300: oklch(14% 0.004 49.25);
   --color-base-content: oklch(97.807% 0.029 256.847);
@@ -108,7 +110,7 @@
   --color-warning: oklch(90% 0.182 98.111);
   --color-warning-content: oklch(47% 0.114 61.907);
   --color-error: oklch(70% 0.191 22.216);
-  --color-error-content: oklch(25% 0.092 26.042);
+  --color-error-content: oklch(25% 0.092 26.042); */
 
   --color-accent-50: oklch(0.9795 0.0098 87.47);
   --color-accent-100: oklch(0.9511 0.0229 84.59);
@@ -215,7 +217,7 @@ html {
 }
 
 body {
-  @apply bg-base-300 text-base-content;
+  @apply bg-base-200 text-base-content;
   font-family: "SourceCodePro";
   min-height: 100%;
   /* background: linear-gradient(135deg, var(--color-base-200) 0%, var(--color-base-300) 50%, var(--color-base-200) 100%); */
@@ -248,6 +250,10 @@ section {
   width: 100%;
 }
 
+.footer-title {
+  opacity: 100%;
+}
+
 /* :target {
   @apply scroll-m-12 lg:scroll-mt-0;
 } */
@@ -274,7 +280,7 @@ section {
 } */
 
 .gradient-text {
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -303,24 +309,30 @@ section {
 }
 
 .card-hover:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border-color: var(--color-primary-content);
+  @apply shadow-2xl;
+  border-color: var(--color-primary);
+}
+
+.btn-special {
+  @apply bg-base-200/80 hover:bg-base-100/80 border border-neutral-content/50 hover:border-primary/30;
 }
 
 .btn-glow {
+  @apply bg-linear-to-r/srgb from-primary/60 to-secondary/60;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  color: var(--color-neutral-content);
 }
 
 .btn-glow::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #2dd4bf, #a855f7, #2dd4bf);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(in srgb 45deg, var(--color-primary), var(--color-secondary), var(--color-secondary), var(--color-primary));
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
@@ -334,6 +346,7 @@ section {
 
 .btn-glow:hover {
   transform: translateY(-2px);
+  color: var(--color-neutral);
 }
 
 .image-hover {

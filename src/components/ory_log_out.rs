@@ -16,7 +16,7 @@ pub fn OryLogOut() -> Element {
       Ok(res) => {
         rsx! {
           a {
-            class: "btn btn-lg bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+            class: "btn btn-lg btn-special font-semibold",
             href: res.logout_url.clone(),
             Icon { icon: LdLogOut, title: "Logout" }
             "Logout"

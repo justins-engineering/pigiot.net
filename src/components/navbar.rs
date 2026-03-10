@@ -1,6 +1,6 @@
 // use crate::components::Logo;
 use crate::components::OryLogOut;
-use crate::{Route, Session};
+use crate::{DASHBOARD_URL, Route, Session};
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
 use dioxus_free_icons::icons::ld_icons::{
@@ -15,7 +15,7 @@ pub fn Navbar() -> Element {
     header { class: "w-full sticky top-0 z-50 backdrop-blur-md bg-base-200/80 border-b border-stone-800/50 shadow-lg",
       nav { class: "navbar sm:px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64",
         div { class: "navbar-start space-x-3",
-          div { class: "size-10 rounded-full flex items-center justify-center bg-linear-to-br from-teal-600 to-purple-600 animate-glow",
+          div { class: "size-10 rounded-full flex items-center justify-center bg-secondary/60 animate-glow",
             // Logo {}
             Icon { icon: LdBird, class: "size-6", title: "Logo" }
           }
@@ -52,19 +52,19 @@ pub fn Navbar() -> Element {
         div { class: "navbar-end hidden md:flex space-x-4",
           if *use_context::<Session>().state.read() {
             a {
-              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-r from-teal-700 to-purple-600 font-semibold",
-              href: "https://dashboard.pigiot.net",
+              class: "btn btn-lg btn-glow font-semibold",
+              href: DASHBOARD_URL,
               "Dashboard"
             }
             OryLogOut {}
           } else {
             Link {
-              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-r from-teal-700 to-purple-600 font-semibold",
+              class: "btn btn-lg btn-glow font-semibold",
               to: Route::SignUp {},
               "Get Started"
             }
             Link {
-              class: "btn btn-lg bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+              class: "btn btn-lg btn-special font-semibold",
               to: Route::SignIn {},
               Icon { icon: LdLogIn, title: "Login" }
               "Login"
@@ -93,7 +93,7 @@ pub fn Navbar() -> Element {
         div { class: "menu menu-vertical space-y-3 justify-items-center w-full",
           Link {
             to: Route::Index {},
-            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
             Icon {
               icon: LdHome,
               class: "inline align-text-bottom mr-3",
@@ -101,7 +101,7 @@ pub fn Navbar() -> Element {
             "Home"
           }
           Link {
-            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
             to: Route::About {},
             Icon {
               icon: LdInfo,
@@ -110,7 +110,7 @@ pub fn Navbar() -> Element {
             "About Us"
           }
           Link {
-            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
             to: Route::Faq {},
             Icon {
               icon: LdMessageCircleQuestion,
@@ -119,7 +119,7 @@ pub fn Navbar() -> Element {
             "FAQ"
           }
           a {
-            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-stone-800/50",
+            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
             href: "/#pricing",
             Icon {
               icon: LdTag,
@@ -129,19 +129,19 @@ pub fn Navbar() -> Element {
           }
           if *use_context::<Session>().state.read() {
             a {
-              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-br from-primary to-secondary font-semibold p-0",
-              href: "https://dashboard.pigiot.net",
+              class: "btn btn-lg btn-glow font-semibold",
+              href: DASHBOARD_URL,
               "Dashboard"
             }
             OryLogOut {}
           } else {
             Link {
-              class: "btn btn-lg btn-glow hover:animate-glow bg-linear-to-br from-primary to-secondary font-semibold p-0",
+              class: "btn btn-lg btn-glow font-semibold",
               to: Route::SignUp {},
               "Get Started"
             }
             Link {
-              class: "btn btn-lg bg-stone-800/80 hover:bg-stone-700/80 border border-stone-700 font-bold hover:border-primary/30",
+              class: "btn btn-lg btn-special font-semibold",
               to: Route::SignIn {},
               Icon { icon: LdLogIn, title: "Login" }
               "Login"
