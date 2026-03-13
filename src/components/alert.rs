@@ -12,7 +12,7 @@ pub fn Alert() -> Element {
       class: if dismissed() { "hidden" },
       Icon { icon: LdTriangleAlert, title: "Important" }
       span {
-        "This platform is in pre-alpha, the information presented here may not be accurate and will change!"
+        "This website is under construction, it may not be fully functional and it will change!"
       }
       button {
         class: "btn btn-sm btn-square btn-warning btn-soft not-dark:text-warning-content",
