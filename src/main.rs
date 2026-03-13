@@ -80,8 +80,6 @@ enum Route {
   PageNotFound { route: Vec<String> },
 }
 
-const MAIN_CSS: Asset = asset!("/assets/styling/main.css");
-
 // The server function at the endpoint "static_routes" will be called by the CLI to generate the list of static
 // routes. You must explicitly set the endpoint to `"static_routes"` in the server function attribute instead of
 // the default randomly generated endpoint.
@@ -141,23 +139,26 @@ fn App() -> Element {
   (set_state)();
 
   rsx! {
-    document::Link { rel: "stylesheet", href: MAIN_CSS }
     document::Link {
-      rel: "icon",
-      href: asset!("/assets/images/icon-light.ico"),
-      sizes: "32x32",
+      rel: "stylesheet",
+      href: asset!("/assets/styling/main.css", AssetOptions::builder().with_hash_suffix(false)),
     }
+    // document::Link {
+    //   rel: "icon",
+    //   href: asset!("/assets/images/icon-light.ico"),
+    //   sizes: "32x32",
+    // }
     document::Link {
       rel: "icon",
       href: asset!("/assets/images/icon-light.ico"),
       sizes: "32x32",
-      media: "prefers-color-scheme: light",
+      media: "(prefers-color-scheme: light)",
     }
     document::Link {
       rel: "icon",
       href: asset!("/assets/images/icon-dark.ico"),
       sizes: "32x32",
-      media: "prefers-color-scheme: dark",
+      media: "(prefers-color-scheme: dark)",
     }
     document::Link {
       rel: "icon",
@@ -168,18 +169,47 @@ fn App() -> Element {
       rel: "icon",
       r#type: "image/svg+xml",
       href: asset!("/assets/images/icon-light.svg"),
-      media: "prefers-color-scheme: light",
+      media: "(prefers-color-scheme: light)",
     }
     document::Link {
       rel: "icon",
       r#type: "image/svg+xml",
       href: asset!("/assets/images/icon-dark.svg"),
-      media: "prefers-color-scheme: dark",
+      media: "(prefers-color-scheme: dark)",
     }
     document::Meta {
       name: "description",
-      content: "An open-source IoT platform built in Rust. Security, performance, and reliability by design.",
+      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for enterprise fleets.",
     }
+    document::Meta { property: "og:type", content: "website" }
+    document::Meta { property: "og:url", content: "https://pigiot.net/" }
+    document::Meta {
+      property: "og:title",
+      content: "PigIoT | Open-Source IoT Infrastructure",
+    }
+    document::Meta {
+      property: "og:description",
+      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for enterprise fleets.",
+    }
+    // document::Meta {
+    //   property: "og:image",
+    //   content: "https://pigiot.net/assets/images/social-preview.png",
+    // }
+
+    document::Meta { property: "twitter:card", content: "summary_large_image" }
+    document::Meta { property: "twitter:url", content: "https://pigiot.net/" }
+    document::Meta {
+      property: "twitter:title",
+      content: "PigIoT | Open-Source IoT Infrastructure",
+    }
+    document::Meta {
+      property: "twitter:description",
+      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for enterprise fleets.",
+    }
+    // document::Meta {
+    //   property: "twitter:image",
+    //   content: "https://pigiot.net/assets/images/social-preview.png",
+    // }
     Router::<Route> {}
   }
 }
