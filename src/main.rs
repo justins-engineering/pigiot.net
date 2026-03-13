@@ -5,7 +5,7 @@ use dioxus_i18n::prelude::*;
 use ory_kratos_client_wasm::apis::configuration::Configuration;
 use unic_langid::langid;
 use views::{
-  About, AccountRecovery, Faq, Index, LoginFlow, PageNotFound, RecoveryFlow, RegisterFlow,
+  AboutUs, AccountRecovery, Faq, Index, LoginFlow, PageNotFound, RecoveryFlow, RegisterFlow,
   ServerError, SessionInfo, Settings, SettingsFlow, SignIn, SignUp, VerificationFlow, Verify,
   Wrapper,
 };
@@ -48,7 +48,7 @@ enum Route {
     #[route("/faq")]
     Faq {},
     #[route("/about")]
-    About {},
+    AboutUs {},
     #[route("/session")]
     SessionInfo {},
     #[route("/sign-in")]

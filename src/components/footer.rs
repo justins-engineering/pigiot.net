@@ -121,37 +121,13 @@ pub fn Footer() -> Element {
 
                   Link {
                     class: "text-base hover:text-secondary transition-colors duration-300 flex items-center group",
-                    to: Route::About {},
+                    to: Route::AboutUs {},
                     Icon {
                       icon: LdChevronRight,
                       class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "About Us"
-                  }
-                }
-                li {
-                  a {
-                    class: "text-base hover:text-secondary transition-colors duration-300 flex items-center group",
-                    href: "#",
-                    Icon {
-                      icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
-                      title: "Chevron right",
-                    }
-                    "Blog"
-                  }
-                }
-                li {
-                  a {
-                    class: "text-base hover:text-secondary transition-colors duration-300 flex items-center group",
-                    href: "#",
-                    Icon {
-                      icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
-                      title: "Chevron right",
-                    }
-                    "Careers"
                   }
                 }
                 li {
@@ -193,18 +169,6 @@ pub fn Footer() -> Element {
                       title: "Chevron right",
                     }
                     "Discord"
-                  }
-                }
-                li {
-                  a {
-                    class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
-                    href: "#",
-                    Icon {
-                      icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
-                      title: "Chevron right",
-                    }
-                    "Stack Overflow"
                   }
                 }
               }

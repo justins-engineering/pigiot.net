@@ -33,7 +33,7 @@ pub fn Navbar() -> Element {
             }
             li {
               Link {
-                to: Route::About {},
+                to: Route::AboutUs {},
                 class: "hover:text-primary transition-colors duration-300 relative group",
                 "About Us"
                 span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
@@ -100,7 +100,7 @@ pub fn Navbar() -> Element {
           }
           Link {
             class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
-            to: Route::About {},
+            to: Route::AboutUs {},
             Icon {
               icon: LdInfo,
               class: "inline align-text-bottom mr-3",

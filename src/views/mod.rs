@@ -19,7 +19,7 @@ mod wrapper;
 pub use wrapper::Wrapper;
 
 mod about;
-pub use about::About;
+pub use about::AboutUs;
 
 mod faq;
 pub use faq::Faq;
