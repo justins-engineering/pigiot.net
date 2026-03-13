@@ -1,5 +1,5 @@
-#![forbid(unsafe_code)]
-
+use crate::components::{SetSessionCookie, session_cookie_valid};
+use crate::config::{DASHBOARD_URL, KRATOS_BROWSER_URL};
 use dioxus::prelude::*;
 use dioxus_i18n::prelude::*;
 use ory_kratos_client_wasm::apis::configuration::Configuration;
@@ -10,17 +10,10 @@ use views::{
   Wrapper,
 };
 
-use crate::components::{SetSessionCookie, session_cookie_valid};
-
 mod components;
+mod config;
 mod partials;
 mod views;
-
-const KRATOS_BROWSER_URL: &str = "http://127.0.0.1:4433";
-const DASHBOARD_URL: &str = "http://127.0.0.1:8080";
-
-// const KRATOS_BROWSER_URL: &str = "https://kratos-public.pigiot.net";
-// const DASHBOARD_URL: &str = "https://dashboard.pigiot.net";
 
 const SESSION_COOKIE_NAME: &str = "session_expiry";
 

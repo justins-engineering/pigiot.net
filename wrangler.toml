@@ -1,8 +1,6 @@
 name = "pigiot-net"
-compatibility_date = "2026-03-06"
+compatibility_date = "2026-03-13"
 send_metrics = false
-# workers_dev = false
-# main = "build/worker/shim.mjs"
 
 [[routes]]
 pattern = "pigiot.net"
@@ -10,9 +8,8 @@ custom_domain = true
 
 [assets]
 directory = "./target/dx/pigiot-net/release/web/public"
-# binding = "ASSETS"
 not_found_handling = "single-page-application"
 
-# [build]
-# command = "bunx @tailwindcss/cli -i ./assets/tailwind.css -o ./assets/styling/main.css -m && dx build --web --ssg --release --debug-symbols=false && cargo install -q worker-build && worker-build --release"
-# watch_dir = ["./src"]
+[build]
+command = "bunx @tailwindcss/cli -i ./assets/tailwind.css -o ./assets/styling/main.css -m && dx build --web --ssg --release --debug-symbols=false"
+watch_dir = ["./src"]
