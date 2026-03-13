@@ -3,9 +3,7 @@ use crate::components::OryLogOut;
 use crate::{DASHBOARD_URL, Route, Session};
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
-use dioxus_free_icons::icons::ld_icons::{
-  LdBird, LdHome, LdInfo, LdLogIn, LdMenu, LdMessageCircleQuestion, LdTag, LdX,
-};
+use dioxus_free_icons::icons::ld_icons::{LdBird, LdHome, LdInfo, LdLogIn, LdMenu, LdTag, LdX};
 
 #[component]
 pub fn Navbar() -> Element {
@@ -39,14 +37,14 @@ pub fn Navbar() -> Element {
                 span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
               }
             }
-            li {
-              Link {
-                to: Route::Faq {},
-                class: "hover:text-primary transition-colors duration-300 relative group",
-                "FAQ"
-                span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
-              }
-            }
+                    // li {
+          //   Link {
+          //     to: Route::Faq {},
+          //     class: "hover:text-primary transition-colors duration-300 relative group",
+          //     "FAQ"
+          //     span { class: "absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" }
+          //   }
+          // }
           }
         }
         div { class: "navbar-end hidden md:flex space-x-4",
@@ -107,15 +105,15 @@ pub fn Navbar() -> Element {
             }
             "About Us"
           }
-          Link {
-            class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
-            to: Route::Faq {},
-            Icon {
-              icon: LdMessageCircleQuestion,
-              class: "inline align-text-bottom relative mr-3",
-            }
-            "FAQ"
-          }
+          // Link {
+          //   class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
+          //   to: Route::Faq {},
+          //   Icon {
+          //     icon: LdMessageCircleQuestion,
+          //     class: "inline align-text-bottom relative mr-3",
+          //   }
+          //   "FAQ"
+          // }
           a {
             class: "font-medium hover:text-primary transition-colors py-3 px-4 rounded-lg",
             href: "/#pricing",

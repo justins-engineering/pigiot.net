@@ -21,8 +21,8 @@ pub use wrapper::Wrapper;
 mod about;
 pub use about::AboutUs;
 
-mod faq;
-pub use faq::Faq;
+// mod faq;
+// pub use faq::Faq;
 
 mod login;
 pub use login::LoginFlow;
