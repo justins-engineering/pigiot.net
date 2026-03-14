@@ -1,5 +1,5 @@
 use crate::components::{SetSessionCookie, session_cookie_valid};
-use crate::config::{DASHBOARD_URL, KRATOS_BROWSER_URL};
+use crate::config::{DASHBOARD_URL, KRATOS_BROWSER_URL, SESSION_COOKIE_NAME};
 use dioxus::prelude::*;
 use dioxus_i18n::prelude::*;
 use ory_kratos_client_wasm::apis::configuration::Configuration;
@@ -14,8 +14,6 @@ mod components;
 mod config;
 mod partials;
 mod views;
-
-const SESSION_COOKIE_NAME: &str = "session_expiry";
 
 #[derive(Clone, Copy, Debug)]
 struct Session {
@@ -73,7 +71,7 @@ enum Route {
     RecoveryFlow { flow: String },
     #[route("/session/local?:state")]
     SetSessionCookie { state: bool },
-    #[end_layout]
+  #[end_layout]
   #[route("/error?:id")]
   ServerError { id: String },
   #[route("/:..route")]

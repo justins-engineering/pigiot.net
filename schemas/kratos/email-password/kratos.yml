@@ -35,7 +35,7 @@ serve:
 selfservice:
   default_browser_return_url: http://127.0.0.1:4455/
   allowed_return_urls:
-    - http://127.0.0.1:4455
+    - http://127.0.0.1
     - http://localhost:19006/Callback
     - exp://localhost:8081/--/Callback
 
@@ -58,7 +58,7 @@ selfservice:
       ui_url: http://127.0.0.1:4455/error
 
     settings:
-      ui_url: http://127.0.0.1:4455/settings
+      ui_url: http://127.0.0.1:8787/settings
       privileged_session_max_age: 15m
       required_aal: highest_available
 
@@ -72,7 +72,7 @@ selfservice:
       ui_url: http://127.0.0.1:4455/verification
       use: code
       after:
-        default_browser_return_url: http://127.0.0.1:4455/session/local?state=true
+        default_browser_return_url: http://127.0.0.1:8787/session/local?state=true
 
     logout:
       after:
@@ -82,13 +82,13 @@ selfservice:
       ui_url: http://127.0.0.1:4455/login
       lifespan: 10m
       after:
-        default_browser_return_url: http://127.0.0.1:4455/session/local?state=true
+        default_browser_return_url: http://127.0.0.1:8787/session/local?state=true
 
     registration:
       lifespan: 10m
       ui_url: http://127.0.0.1:4455/registration
       after:
-        default_browser_return_url: http://127.0.0.1:4455/session/local?state=true
+        default_browser_return_url: http://127.0.0.1:8787/session/local?state=true
         password:
           hooks:
             - hook: session

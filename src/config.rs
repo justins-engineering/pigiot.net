@@ -9,3 +9,9 @@ pub const DASHBOARD_URL: &str = match option_env!("DASHBOARD_URL") {
   Some(url) => url,
   None => "http://127.0.0.1:8787",
 };
+
+// Cookie name for cookie defining session state
+pub const SESSION_COOKIE_NAME: &str = match option_env!("SESSION_COOKIE_NAME") {
+  Some(name) => name,
+  None => "session_expiry",
+};

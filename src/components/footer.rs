@@ -1,9 +1,9 @@
 use crate::Route;
+use chrono::Datelike;
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
 use dioxus_free_icons::icons::fa_brands_icons::{FaDiscord, FaGithub, FaYoutube};
 use dioxus_free_icons::icons::ld_icons::{LdBird, LdChevronRight};
-use web_time::{SystemTime, UNIX_EPOCH};
 
 #[component]
 pub fn Footer() -> Element {
@@ -177,7 +177,7 @@ pub fn Footer() -> Element {
         }
         aside { class: "mt-6 pt-2 border-t border-base-content/10 w-full flex flex-col md:flex-row justify-between items-center",
           p { class: "mb-1 md:mb-0 text-sm",
-            "© {1970 + (SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs()/31556926)} Justin's Engineering Services, LLC."
+            "© {chrono::Utc::now().year()} Justin's Engineering Services, LLC."
           }
           div { class: "flex items-center space-x-6",
             a {
