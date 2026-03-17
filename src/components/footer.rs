@@ -60,51 +60,51 @@ pub fn Footer() -> Element {
           }
           div { class: "grid grid-cols-2 md:grid-cols-3 gap-8 lg:w-3/5",
             nav {
-              h4 { class: "footer-title text-lg ml-6 text-primary", "Product" }
-              ul { class: "space-y-3",
-                li {
+              h4 { class: "ml-2 footer-title text-lg text-primary", "Product" }
+              ul { class: "menu menu-vertical sm:menu-lg p-0",
+                li { class: "menu-disabled",
                   a {
-                    class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
+                    class: "hover:text-primary transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "Features"
                   }
                 }
-                li {
+                li { class: "menu-disabled",
                   a {
-                    class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
+                    class: "hover:text-primary transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "Pricing"
                   }
                 }
-                li {
+                li { class: "menu-disabled",
                   a {
-                    class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
+                    class: "hover:text-primary transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "Documentation"
                   }
                 }
-                li {
+                li { class: "menu-disabled",
                   a {
-                    class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
+                    class: "hover:text-primary transition-colors duration-300 flex items-center group",
                     href: "#",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "API Reference"
@@ -113,18 +113,17 @@ pub fn Footer() -> Element {
               }
             }
             nav {
-              h4 { class: "footer-title text-lg ml-6 text-secondary",
+              h4 { class: "ml-2 footer-title text-lg text-secondary",
                 "Company"
               }
-              ul { class: "space-y-3",
+              ul { class: "menu menu-vertical sm:menu-lg p-0",
                 li {
-
                   Link {
-                    class: "text-base hover:text-secondary transition-colors duration-300 flex items-center group",
+                    class: "hover:text-secondary transition-colors duration-300 group",
                     to: Route::AboutUs {},
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "About Us"
@@ -132,11 +131,11 @@ pub fn Footer() -> Element {
                 }
                 li {
                   a {
-                    class: "text-base hover:text-secondary transition-colors duration-300 flex items-center group",
+                    class: "hover:text-secondary transition-colors duration-300 group",
                     href: "mailto:code@jes.contact",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "Contact"
@@ -145,15 +144,15 @@ pub fn Footer() -> Element {
               }
             }
             nav {
-              h4 { class: "footer-title text-lg ml-6 text-primary", "Community" }
-              ul { class: "space-y-3",
+              h4 { class: "ml-2 footer-title text-lg text-primary", "Community" }
+              ul { class: "menu menu-vertical sm:menu-lg p-0",
                 li {
                   a {
                     class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
                     href: "https://github.com/justins-engineering",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "GitHub"
@@ -165,7 +164,7 @@ pub fn Footer() -> Element {
                     href: "https://discord.gg/W2vjtpeP",
                     Icon {
                       icon: LdChevronRight,
-                      class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
+                      class: "absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity",
                       title: "Chevron right",
                     }
                     "Discord"
@@ -176,24 +175,30 @@ pub fn Footer() -> Element {
           }
         }
         aside { class: "mt-6 pt-2 border-t border-base-content/10 w-full flex flex-col md:flex-row justify-between items-center",
-          p { class: "mb-1 md:mb-0 text-sm",
+          p { class: "mb-1 md:mb-0 text-xs sm:text-sm",
             "© {chrono::Utc::now().year()} Justin's Engineering Services, LLC."
           }
-          div { class: "flex items-center space-x-6",
-            a {
-              class: "hover:text-primary transition-colors duration-300 text-sm",
-              href: "#",
-              "Privacy Policy"
+          ul { class: "menu menu-horizontal menu-xs sm:menu-sm m-0 p-0",
+            li { class: "menu-disabled",
+              a {
+                class: "hover:text-primary transition-colors duration-300",
+                href: "#",
+                "Privacy Policy"
+              }
             }
-            a {
-              class: "hover:text-primary transition-colors duration-300 text-sm",
-              href: "#",
-              "Terms of Service"
+            li { class: "menu-disabled",
+              a {
+                class: "hover:text-primary transition-colors duration-300",
+                href: "#",
+                "Terms of Service"
+              }
             }
-            a {
-              class: "hover:text-primary transition-colors duration-300 text-sm",
-              href: "#",
-              "Cookie Policy"
+            li { class: "menu-disabled",
+              a {
+                class: "hover:text-primary transition-colors duration-300",
+                href: "#",
+                "Cookie Policy"
+              }
             }
           }
         }
