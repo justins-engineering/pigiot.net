@@ -49,7 +49,7 @@ pub fn Footer() -> Element {
               }
               a {
                 class: "btn btn-circle bg-base-100 hover:bg-[#212121] hover:text-[#FF0033] transition-all duration-300",
-                href: "#",
+                href: "https://www.youtube.com/channel/UCrWAKM3eEnbimkdzUGMCNoQ",
                 Icon {
                   icon: FaYoutube,
                   class: "size-5",
