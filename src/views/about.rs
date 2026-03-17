@@ -1,3 +1,4 @@
+use crate::Route;
 use dioxus::prelude::*;
 use dioxus_free_icons::Icon;
 use dioxus_free_icons::icons::ld_icons::{
@@ -165,8 +166,14 @@ pub fn AboutUs() -> Element {
           "We are building PigIoT in the open because infrastructure of this scale belongs to the community. We aren't just looking for users; we are looking for collaborators who share our vision."
         }
         div { class: "flex flex-col sm:flex-row justify-center gap-6",
-          button { class: "btn btn-primary btn-lg px-10 rounded-full", "View the Platform" }
-          button { class: "btn btn-ghost btn-lg px-10 rounded-full border border-base-content/20 hover:border-base-content/40 hover:bg-transparent",
+          Link {
+            class: "btn btn-primary btn-lg px-10 rounded-full",
+            to: Route::SignUp {},
+            "View the Platform"
+          }
+          a {
+            class: "btn btn-ghost btn-lg px-10 rounded-full border border-base-content/20 hover:border-base-content/40 hover:bg-transparent",
+            href: "https://discord.gg/W2vjtpeP",
             "Connect with the Team"
           }
         }

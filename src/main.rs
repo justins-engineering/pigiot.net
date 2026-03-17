@@ -177,7 +177,7 @@ fn App() -> Element {
     }
     document::Meta {
       name: "description",
-      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for enterprise fleets.",
+      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for any size fleet.",
     }
     document::Meta { property: "og:type", content: "website" }
     document::Meta { property: "og:url", content: "https://pigiot.net/" }
@@ -187,7 +187,7 @@ fn App() -> Element {
     }
     document::Meta {
       property: "og:description",
-      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for enterprise fleets.",
+      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for any size fleet.",
     }
     // document::Meta {
     //   property: "og:image",
@@ -202,7 +202,7 @@ fn App() -> Element {
     }
     document::Meta {
       property: "twitter:description",
-      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for enterprise fleets.",
+      content: "The open-source foundation for connected devices. PigIoT provides flexible cloud infrastructure and seamless cellular connectivity for any size fleet.",
     }
     // document::Meta {
     //   property: "twitter:image",

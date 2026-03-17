@@ -9,6 +9,6 @@
     "@tailwindcss/oxide"
   ],
   "devDependencies": {
-    "wrangler": "^4.73.0"
+    "wrangler": "^4.74.0"
   }
 }

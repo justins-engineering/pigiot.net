@@ -40,7 +40,7 @@ pub fn Footer() -> Element {
               }
               a {
                 class: "btn btn-circle bg-base-100 hover:bg-[#E0E3FF] hover:text-[#5865F2] transition-all duration-300",
-                href: "#",
+                href: "https://discord.gg/W2vjtpeP",
                 Icon {
                   icon: FaDiscord,
                   class: "size-5",
@@ -162,7 +162,7 @@ pub fn Footer() -> Element {
                 li {
                   a {
                     class: "text-base hover:text-primary transition-colors duration-300 flex items-center group",
-                    href: "#",
+                    href: "https://discord.gg/W2vjtpeP",
                     Icon {
                       icon: LdChevronRight,
                       class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
