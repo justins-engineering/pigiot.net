@@ -133,7 +133,7 @@ pub fn Footer() -> Element {
                 li {
                   a {
                     class: "text-base hover:text-secondary transition-colors duration-300 flex items-center group",
-                    href: "#",
+                    href: "mailto:code@jes.contact",
                     Icon {
                       icon: LdChevronRight,
                       class: "mr-2 opacity-0 group-hover:opacity-100 transition-opacity",
