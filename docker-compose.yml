@@ -9,9 +9,9 @@ services:
         target: /var/lib/sqlite
         read_only: false
       - type: bind
-        source: ./schemas/kratos/email-password
-        target: /etc/config/kratos
-    command: -c /etc/config/kratos/kratos.yml migrate sql -e --yes
+        source: ./schemas/kratos
+        target: /opt/kratos
+    command: -c /opt/kratos/kratos.yml migrate sql -e --yes
     restart: on-failure
     networks:
       - intranet
@@ -27,15 +27,15 @@ services:
     environment:
       - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true
       - LOG_LEVEL=trace
-    command: serve -c /etc/config/kratos/kratos.yml --dev --watch-courier --sqa-opt-out
+    command: serve -c /opt/kratos/kratos.yml --dev --watch-courier --sqa-opt-out
     volumes:
       - type: volume
         source: kratos-sqlite
         target: /var/lib/sqlite
         read_only: false
       - type: bind
-        source: ./schemas/kratos/email-password
-        target: /etc/config/kratos
+        source: ./schemas/kratos
+        target: /opt/kratos/
     networks:
       - intranet
 

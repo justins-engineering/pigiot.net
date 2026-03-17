@@ -100,8 +100,10 @@ log:
   leak_sensitive_values: true
 
 secrets:
+  default:
+    - 32-LONG-SECRET-NOT-SECURE-AT-ALL
   cookie:
-    - PLEASE-CHANGE-ME-I-AM-VERY-INSECURE
+    - 32-LONG-SECRET-NOT-SECURE-AT-ALL
   cipher:
     - 32-LONG-SECRET-NOT-SECURE-AT-ALL
 
@@ -109,21 +111,25 @@ ciphers:
   algorithm: xchacha20-poly1305
 
 hashers:
-  algorithm: bcrypt
-  bcrypt:
-    cost: 8
+  algorithm: argon2
+  argon2:
+    memory: 384MB
+    iterations: 3
+    parallelism: 16
+    salt_length: 16
+    key_length: 32
+    expected_duration: 500ms
+    expected_deviation: 500ms
+    dedicated_memory: 1GB
 
 identity:
-  default_schema_id: default
+  default_schema_id: user
   schemas:
-    - id: default
-      url: file:///etc/config/kratos/identity.schema.json
+    - id: user
+      url: file:///opt/kratos/identity.user.schema.json
 
 courier:
   smtp:
     connection_uri: smtps://test:test@mailslurper:1025/?skip_ssl_verify=true
-
-feature_flags:
-  use_continue_with_transitions: false
 
 sqa-opt-out: true
